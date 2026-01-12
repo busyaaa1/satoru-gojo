@@ -275,3 +275,100 @@ main {
   color: #a855f7;
 }
 
+
+
+/* =========================
+   MOBILE TYPOGRAPHY FIX
+========================= */
+
+@media (max-width: 768px) {
+
+  /* HERO TITLE */
+  h1 {
+    font-size: clamp(2.4rem, 9vw, 3.2rem) !important;
+    line-height: 1.05;
+  }
+
+  /* SECTION TITLES */
+  h2 {
+    font-size: 1.9rem !important;
+    line-height: 1.15;
+  }
+
+  h3 {
+    font-size: 1.4rem !important;
+  }
+
+  h4 {
+    font-size: 1.1rem !important;
+  }
+
+  /* PARAGRAPHS */
+  p,
+  .text-justify-custom {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  /* QUOTES */
+  blockquote {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  /* SMALL META TEXT */
+  .text-xs {
+    font-size: 0.7rem !important;
+  }
+
+  /* NAV / UI */
+  nav a {
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+  }
+
+  /* BUTTON */
+  .liquid-btn {
+    font-size: 0.75rem;
+    padding: 10px 28px;
+    letter-spacing: 0.12em;
+  }
+}
+
+@media (max-width: 420px) {
+
+  h1 {
+    font-size: 2.2rem !important;
+  }
+
+  h2 {
+    font-size: 1.7rem !important;
+  }
+
+  p,
+  .text-justify-custom {
+    font-size: 0.9rem;
+  }
+}
+
+/* =========================
+   KEEP MAIN-GOJO ORIGINAL SIZE
+========================= */
+#main-gojo {
+  font-size: clamp(3.2rem, 10vw, 5rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+@media (max-width: 768px) {
+  #main-gojo {
+    font-size: clamp(2.8rem, 12vw, 3.6rem);
+    line-height: 1.02;
+  }
+}
+
+@media (max-width: 420px) {
+  #main-gojo {
+    font-size: 2.5rem;
+  }
+}
