@@ -1,0 +1,277 @@
+/* Общие настройки */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Эффект Liquid Glass */
+.glass-container {
+  background: rgba(255, 255, 255, 0.03); /* Очень прозрачный белый */
+  backdrop-filter: blur(15px) saturate(160%); /* Размытие заднего плана */
+  -webkit-backdrop-filter: blur(15px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 2rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+/* Текст со свечением */
+.text-glow {
+  text-shadow: 0 0 15px rgba(168, 85, 247, 0.5), 0 0 30px rgba(168, 85, 247, 0.3);
+}
+
+/* Кнопка в стиле Liquid Glass */
+.liquid-btn {
+  position: relative;
+  display: inline-block;
+  padding: 12px 36px;
+  background: rgba(168, 85, 247, 0.1);
+  border: 1px solid rgba(168, 85, 247, 0.4);
+  border-radius: 50px;
+  color: #c084fc;
+  font-weight: 500;
+  letter-spacing: 1px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.liquid-btn:hover {
+  background: #a855f7;
+  color: black;
+  box-shadow: 0 0 40px rgba(168, 85, 247, 0.6);
+  transform: translateY(-2px);
+}
+
+/* Анимация появления */
+.fade-in {
+  animation: fadeIn 1.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* Анимация плавного парения */
+.float-anim {
+  animation: floating 4s ease-in-out infinite;
+}
+
+.float-anim.delay-200 {
+  animation-delay: 0.5s;
+}
+
+@keyframes floating {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+/* Стили карточек с эффектом молнии */
+.lightning-card {
+  position: relative;
+  width: 16rem; /* w-64 */
+  height: 10rem; /* h-40 */
+  background: rgba(168, 85, 247, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  border-radius: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+}
+
+/* Контент внутри карточки */
+.card-content {
+  position: relative;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+/* Эффект мерцания молнии (Border & Glow) */
+.lightning-card {
+  animation: lightning-border 3s linear infinite;
+}
+
+@keyframes lightning-border {
+  0%, 90%, 100% { border-color: rgba(168, 85, 247, 0.3); box-shadow: none; }
+  92% { border-color: #fff; box-shadow: 0 0 30px #a855f7, 0 0 60px #3b82f6; }
+  94% { border-color: rgba(168, 85, 247, 0.3); }
+  96% { border-color: #fff; box-shadow: 0 0 40px #a855f7; }
+}
+
+/* Сама вспышка молнии внутри */
+.lightning-strike {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.lightning-card:hover {
+  background: rgba(168, 85, 247, 0.2);
+  transform: scale(1.05) translateY(-15px) !important;
+  border-color: #a855f7;
+}
+
+.lightning-card:hover .lightning-strike {
+  left: 100%;
+  transition: 0.7s;
+}
+
+.lightning-card:hover .card-content {
+  text-shadow: 0 0 15px white;
+  letter-spacing: 4px;
+}
+
+/* Карточки информации в стиле Liquid Glass */
+.glass-info-card {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 2.5rem;
+  border-radius: 2rem;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-info-card:hover {
+  background: rgba(168, 85, 247, 0.05);
+  border-color: rgba(168, 85, 247, 0.2);
+  transform: scale(1.01) translateX(10px);
+}
+
+/* Декоративная линия */
+.divider-small {
+  width: 50px;
+  height: 2px;
+  background: #a855f7;
+  margin-bottom: 1.5rem;
+  transition: width 0.5s ease;
+}
+
+.glass-info-card:hover .divider-small {
+  width: 100px;
+}
+
+/* Кастомный скроллбар */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #222;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a855f7;
+}
+
+/* Стиль карточек истории */
+.glass-card-history {
+  background: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+.glass-card-history:hover {
+  border-color: rgba(168, 85, 247, 0.4);
+  transform: translateY(-5px);
+}
+
+/* Анимация элементов при скролле */
+.timeline-item {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+}
+
+.timeline-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Плавный скролл */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Улучшенная карточка "Жидкое стекло" */
+.glass-info-card {
+  background: rgba(255, 255, 255, 0.01);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 2.5rem;
+  padding: 3rem;
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-info-card:hover {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(168, 85, 247, 0.3);
+  transform: translateY(-10px) scale(1.01);
+  box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.5), 
+              0 18px 36px -18px rgba(168, 85, 247, 0.2);
+}
+
+/* Эффект свечения для крупных заголовков */
+.text-glow {
+  color: white;
+  text-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+}
+
+/* Плавный скролл */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Для изображений, когда ты их вставишь */
+.glass-info-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+/* Плавное появление контента при загрузке */
+main {
+  animation: contentSlideUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes contentSlideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Улучшение читаемости больших текстов */
+.text-justify-custom {
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.text-justify-custom strong {
+  color: #a855f7;
+}
+
